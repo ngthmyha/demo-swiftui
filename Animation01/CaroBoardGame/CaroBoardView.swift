@@ -1,20 +1,20 @@
 //
-//  GameView.swift
+//  CaroBoardView.swift
 //  Animation01
 //
-//  Created by MacMini4 on 14/03/2024.
+//  Created by MacMini4 on 26/03/2024.
 //
 
 import SwiftUI
 import SpriteKit
 
-struct GameView: View {
+struct CaroBoardView: View {
     var scene: SKScene {
-        let scene = GameScene()
+        let scene = CaroBoardScene()
         scene.scaleMode = .resizeFill
         return scene
     }
-
+    
     var body: some View {
         SpriteView(scene: scene, options: [.allowsTransparency])
             .background(Color.black.ignoresSafeArea())
@@ -22,5 +22,5 @@ struct GameView: View {
 }
 
 #Preview {
-    GameView()
+    CaroBoardView()
 }

@@ -21,6 +21,11 @@
 		6A7C8D352BA2EBC800B2872B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7C8D322BA2EBC800B2872B /* GameScene.swift */; };
 		6A7C8D372BA2EBDA00B2872B /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7C8D362BA2EBDA00B2872B /* GameView.swift */; };
 		6A7C8D3A2BA2EE0000B2872B /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7C8D392BA2EE0000B2872B /* StoryView.swift */; };
+		6A9669272BB2B1480035B558 /* CaroBoardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9669262BB2B1480035B558 /* CaroBoardScene.swift */; };
+		6A9669292BB2B1590035B558 /* CaroBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9669282BB2B1590035B558 /* CaroBoardView.swift */; };
+		6AC29DCC2BAC22D100EB71EE /* theBoldFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AC29DCB2BAC22D100EB71EE /* theBoldFont.ttf */; };
+		6AD423242BB15AB7009F5A24 /* SevenSidesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD423232BB15AB7009F5A24 /* SevenSidesView.swift */; };
+		6AD423272BB15AD7009F5A24 /* SevenSidesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD423262BB15AD7009F5A24 /* SevenSidesScene.swift */; };
 		6AF335AB2BA4291700DB5C6A /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF335AA2BA4291700DB5C6A /* CanvasView.swift */; };
 		6AF335AD2BA4295F00DB5C6A /* DrawCatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF335AC2BA4295F00DB5C6A /* DrawCatView.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +65,12 @@
 		6A7C8D322BA2EBC800B2872B /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		6A7C8D362BA2EBDA00B2872B /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		6A7C8D392BA2EE0000B2872B /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		6A9669262BB2B1480035B558 /* CaroBoardScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaroBoardScene.swift; sourceTree = "<group>"; };
+		6A9669282BB2B1590035B558 /* CaroBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaroBoardView.swift; sourceTree = "<group>"; };
+		6AC29DCA2BAC1D9200EB71EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6AC29DCB2BAC22D100EB71EE /* theBoldFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = theBoldFont.ttf; sourceTree = "<group>"; };
+		6AD423232BB15AB7009F5A24 /* SevenSidesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenSidesView.swift; sourceTree = "<group>"; };
+		6AD423262BB15AD7009F5A24 /* SevenSidesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenSidesScene.swift; sourceTree = "<group>"; };
 		6AF335AA2BA4291700DB5C6A /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		6AF335AC2BA4295F00DB5C6A /* DrawCatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawCatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +123,9 @@
 		6A7C8CEF2BA2E5AF00B2872B /* Animation01 */ = {
 			isa = PBXGroup;
 			children = (
+				6A9669252BB2B12B0035B558 /* CaroBoardGame */,
+				6AD423222BB15A8A009F5A24 /* SevenSidesGame */,
+				6AC29DCA2BAC1D9200EB71EE /* Info.plist */,
 				6AF335A92BA4290A00DB5C6A /* Draw */,
 				6A7C8D382BA2EDD600B2872B /* Story */,
 				6A7C8D2E2BA2EBC800B2872B /* Game */,
@@ -119,6 +133,7 @@
 				6A7C8CF02BA2E5AF00B2872B /* Animation01App.swift */,
 				6A7C8CF22BA2E5AF00B2872B /* ContentView.swift */,
 				6A7C8CF42BA2E5B000B2872B /* Assets.xcassets */,
+				6AC29DCB2BAC22D100EB71EE /* theBoldFont.ttf */,
 				6A7C8CF62BA2E5B000B2872B /* Preview Content */,
 				6A7C8D1A2BA2E66400B2872B /* LaunchScreen.swift */,
 			);
@@ -190,6 +205,40 @@
 				6A7C8D392BA2EE0000B2872B /* StoryView.swift */,
 			);
 			path = Story;
+			sourceTree = "<group>";
+		};
+		6A9669252BB2B12B0035B558 /* CaroBoardGame */ = {
+			isa = PBXGroup;
+			children = (
+				6A96692A2BB2B1620035B558 /* Scene */,
+				6A9669282BB2B1590035B558 /* CaroBoardView.swift */,
+			);
+			path = CaroBoardGame;
+			sourceTree = "<group>";
+		};
+		6A96692A2BB2B1620035B558 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				6A9669262BB2B1480035B558 /* CaroBoardScene.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		6AD423222BB15A8A009F5A24 /* SevenSidesGame */ = {
+			isa = PBXGroup;
+			children = (
+				6AD423252BB15ABB009F5A24 /* Scene */,
+				6AD423232BB15AB7009F5A24 /* SevenSidesView.swift */,
+			);
+			path = SevenSidesGame;
+			sourceTree = "<group>";
+		};
+		6AD423252BB15ABB009F5A24 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				6AD423262BB15AD7009F5A24 /* SevenSidesScene.swift */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		6AF335A92BA4290A00DB5C6A /* Draw */ = {
@@ -306,6 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AC29DCC2BAC22D100EB71EE /* theBoldFont.ttf in Resources */,
 				6A7C8D2C2BA2EB0E00B2872B /* Background.sks in Resources */,
 				6A7C8CF82BA2E5B000B2872B /* Preview Assets.xcassets in Resources */,
 				6A7C8CF52BA2E5B000B2872B /* Assets.xcassets in Resources */,
@@ -333,10 +383,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A9669292BB2B1590035B558 /* CaroBoardView.swift in Sources */,
 				6A7C8CF32BA2E5AF00B2872B /* ContentView.swift in Sources */,
+				6A9669272BB2B1480035B558 /* CaroBoardScene.swift in Sources */,
 				6A7C8CF12BA2E5AF00B2872B /* Animation01App.swift in Sources */,
 				6A7C8D2B2BA2EB0E00B2872B /* CardView.swift in Sources */,
+				6AD423272BB15AD7009F5A24 /* SevenSidesScene.swift in Sources */,
 				6AF335AD2BA4295F00DB5C6A /* DrawCatView.swift in Sources */,
+				6AD423242BB15AB7009F5A24 /* SevenSidesView.swift in Sources */,
 				6A7C8D1B2BA2E66400B2872B /* LaunchScreen.swift in Sources */,
 				6A7C8D352BA2EBC800B2872B /* GameScene.swift in Sources */,
 				6AF335AB2BA4291700DB5C6A /* CanvasView.swift in Sources */,
@@ -508,6 +562,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Animation01/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Animation01/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -536,6 +591,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Animation01/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Animation01/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

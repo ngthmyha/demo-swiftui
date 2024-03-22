@@ -13,16 +13,16 @@ struct ContentView: View {
     @Namespace private var nameSpace
     @State var rotation: Angle = .zero
     @State var color = Color.red
-
-    @State var colors: [Color] = [.blue, .green, .orange, .red, .gray, .pink, .yellow]
-    var colors2: [Color] = [.blue, .green, .orange, .red, .gray, .pink, .yellow]
+    
+    @State var colors = ColorType.allCases.map(\.color)
+    var colors2: [Color] = ColorType.allCases.map(\.color)
     var scene: SKScene {
         let scene = BackgroundScene()
         scene.scaleMode = .resizeFill
         scene.backgroundColor = .clear
         return scene
     }
-
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -31,7 +31,7 @@ struct ContentView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 16) {
                             ForEach(colors2, id:\.self) { color in
-                                itemButton(color: color, title: "item \(color)", destination: StoryView())
+                                itemButton2(color: color, title: "item \(color)", destination: ColorType.allCases.first(where: { $0.color == color })?.view())
                             }
                         }
                         .padding(16)
@@ -42,22 +42,12 @@ struct ContentView: View {
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(spacing: 16) {
                             ForEach(colors, id:\.self) { color in
-                                if color == colors[1] {
-                                    itemButton(color: color, title: "item \(color)", height: 70, destination: CardView())
-                                        .onDrag({
-                                            self.selectedColor = color
-                                            return NSItemProvider()
-                                        })
-                                        .onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: color, list: $colors, draggedItem: $selectedColor))
-                                } else {
-                                    itemButton(color: color, title: "item \(color)", height: 70, destination: CanvasView())
-                                        .onDrag({
-                                            self.selectedColor = color
-                                            return NSItemProvider()
-                                        })
-                                        .onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: color, list: $colors, draggedItem: $selectedColor))
-                                }
-                                    
+                                itemButton(color: color, title: "item \(color)")
+                                    .onDrag({
+                                        self.selectedColor = color
+                                        return NSItemProvider()
+                                    })
+                                    .onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: color, list: $colors, draggedItem: $selectedColor))
                             }
                         }
                         .padding(16)
@@ -68,9 +58,14 @@ struct ContentView: View {
             }
         }
     }
-
+    
     @ViewBuilder
-    private func itemButton<Destination: View>(color: Color,title: String, height: CGFloat = 100, destination: Destination) -> some View {
+    private func itemButton(color: Color,title: String) -> some View {
+        DragCellView(color: color, title: title, rotation: $rotation)
+    }
+    
+    @ViewBuilder
+    private func itemButton2<Destination: View>(color: Color,title: String, height: CGFloat = 100, destination: Destination) -> some View {
         NavigationLink(destination: {
             destination
         }, label: {
@@ -84,13 +79,107 @@ struct ContentView: View {
                     .foregroundStyle(Color.white)
             }
         })
+    }
+}
+
+extension ContentView {
+    enum ColorType: Int, CaseIterable {
+        case blue, green, orange, red, gray, pink, yellow
+
+        var color: Color {
+            switch self {
+            case .blue:
+                return .blue
+            case .green:
+                return .green
+            case .orange:
+                return .orange
+            case .red:
+                return .red
+            case .gray:
+                return .gray
+            case .pink:
+                return .pink
+            case .yellow:
+                return .yellow
+            }
+        }
+
+        func view() -> some View {
+            switch self {
+            case .blue:
+                return AnyView(StoryView())
+            case .green:
+                return AnyView(CardView())
+            case .orange:
+                return AnyView(CanvasView())
+            case .red:
+                return AnyView(SevenSidesView())
+            case .yellow:
+                return AnyView(CaroBoardView())
+            default:
+                return AnyView(GameView())
+            }
+        }
+    }
+}
+
+struct DragCellView: View {
+    @Namespace private var namespace
+    @State private var show = false
+    var color: Color
+    var title: String
+    @Binding var rotation: Angle
+
+    var body: some View {
+        ZStack {
+            if !show {
+                ZStack {
+                    Rectangle()
+                        .frame(height: 100)
+                        .foregroundStyle(color)
+                        .cornerRadius(10)
+                        .shadow(radius: 10)
+                        .matchedGeometryEffect(id: "view", in: namespace)
+                    Text(title)
+                        .foregroundStyle(Color.white)
+                        .matchedGeometryEffect(id: "title", in: namespace)
+                }
+            } else {
+                AnotherView(namespace: namespace, title: title, color: color)
+            }
+        }
+        .onTapGesture {
+            withAnimation {
+                show.toggle()
+            }
+        }
         .animation(.default, value: rotation)
         .rotationEffect(rotation)
         .gesture(RotationGesture()
             .onChanged { value in
                 self.rotation = value
-                self.color = .orange
             })
+    }
+}
+
+struct AnotherView: View {
+    var namespace: Namespace.ID
+    var title: String
+    var color: Color
+    
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .frame(height: 400)
+                .foregroundStyle(color)
+                .cornerRadius(10)
+                .shadow(radius: 10)
+                .matchedGeometryEffect(id: "view", in: namespace)
+            Text(title)
+                .foregroundStyle(Color.white)
+                .matchedGeometryEffect(id: "title", in: namespace)
+        }
     }
 }
 

@@ -1,16 +1,16 @@
 //
-//  GameView.swift
+//  SevenSidesView.swift
 //  Animation01
 //
-//  Created by MacMini4 on 14/03/2024.
+//  Created by MacMini4 on 25/03/2024.
 //
 
 import SwiftUI
 import SpriteKit
 
-struct GameView: View {
+struct SevenSidesView: View {
     var scene: SKScene {
-        let scene = GameScene()
+        let scene = SevenSidesScene()
         scene.scaleMode = .resizeFill
         return scene
     }
@@ -22,5 +22,5 @@ struct GameView: View {
 }
 
 #Preview {
-    GameView()
+    SevenSidesView()
 }
